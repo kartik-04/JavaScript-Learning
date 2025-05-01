@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="heading">DOM</h2>
+    <ul>
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+    </ul>
+    <div>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <a href="https://www.google.com"> Google</a>
+    </div>
+
+    
+    <div class="numberContainer" style="border: 1px solid gray; margin: 2rem; padding: 2rem; text-align: center; color: green; font-size: 5rem;"></div>
+
+    <button class="randomButton"> Show Number</button>
+    <script>
+        function ShowRandomNumber(){
+            const divref = document.querySelector('.numberContainer');
+                divref.textContent = Math.floor(Math.random()*10);
+        }
+
+        const btnrndm = document.querySelector('.randomButton');
+        console.log(btnrndm);
+        btnrndm.addEventListener('click', function(event) {
+            ShowRandomNumber();
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <span class="val1">5</span>
+        <span class="operator">/</span>
+        <span class="val2">10</span>
+        <span>=</span>
+        <span class="result">__</span>
+    </div>
+
+    <button class="calculate"> Submit</button>
+
+    <script>
+        const v1 = document.getElementsByClassName('val1')[0].textContent;
+        const v2 = document.getElementsByClassName('val2')[0].textContent;
+        const oprtr = document.getElementsByClassName('operator')[0].textContent;
+
+        function multiply(){
+            let ans = 0;
+            if(oprtr == '*') ans = v1 * v2;
+            else if(oprtr == '-') ans = v1 -v2;
+            else if(oprtr == '+') ans = v1 + v2;
+            else if(oprtr == '/') ans = v1 / v2;
+            else (alert("invalid operator"));
+            const res = document.querySelector('.result');
+            res.textContent = ans;
+        }
+ 
+        const btn = document.querySelector('.calculate');
+        btn.addEventListener('click', function(event){
+            multiply();
+        })
+    </script>
+</body>
+</html>

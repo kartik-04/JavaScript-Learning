@@ -1,0 +1,135 @@
+<!-- <!DOCTYPE html>
+<html> -->
+<!-- Please NOTE that the link to assets (like images) need to be set in global context.
+For example:
+To access an image from assets folder correct way to set src attribute is 
+
+src = 'profile.png'
+
+instead of 
+
+src = './assets/profile.png'
+-->
+
+<!-- <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="all">Remove All</button>
+    <ul>
+        <li>
+            <p>Task - 1</p>
+            <button>delete</button>
+        </li>
+        <li>
+            <p>Task - 2</p>
+            <button>delete</button>
+        </li>
+        <li>
+            <p>Task - 3</p>
+            <button>delete</button>
+        </li>
+        <li>
+            <p>Task - 4</p>
+            <button>delete</button>
+        </li>
+    </ul>
+    <script>
+        // Write your JS program here =========
+        const ulref = document.querySelector('ul');
+        const liref = document.querySelectorAll('li button');
+
+        liref.forEach(li =>{
+            li.addEventListener('click', function(event){
+                const lii = document.querySelector('ul li');
+                lii.style.display = 'none';
+            })
+        })
+
+        const btnref = document.getElementById('all');
+        console.log(btnref);
+        btnref.addEventListener('click', function(e){
+            ulref.style.display = 'none';
+        })
+    </script>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>DATABASE</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>S. No.</th>
+        <th>Name</th>
+        <th>Marks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Sameer</td>
+        <td>90</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Rohan</td>
+        <td>100</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <form>
+    <label for="name">Name:
+      <input type="text" id="name" />
+    </label>
+    <label for="marks">Marks:
+      <input type="number" id="marks" />
+    </label>
+    <input type="submit" value="Submit" />
+  </form>
+  <script>
+    // Q Write a script which takes the entry from the form and add it into the table
+    const formref = document.querySelector('form');
+    console.log(formref);
+    let Sno = 2;
+    formref.addEventListener('submit', function(event){
+        event.preventDefault();
+        const nameRef = document.querySelector('#name').value;
+        const markRef = document.querySelector('#marks').value;
+        Sno++;
+        const newEle = document.createElement('tr');
+        const td1 = document.createElement('td');
+        td1.textContent = Sno;
+        const td2 = document.createElement('td');
+        td2.textContent = nameRef;
+        const td3 = document.createElement('td');
+        td3.textContent = markRef;
+        newEle.appendChild(td1);
+        newEle.appendChild(td2);
+        newEle.appendChild(td3);
+        const tbodyRef = document.querySelector('tbody');
+        tbodyRef.appendChild(newEle);
+        document.querySelector('#name').value = '';
+        document.querySelector('#marks').value = '';
+    })
+  </script>
+</body>
+
+</html>

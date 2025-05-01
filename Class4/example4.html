@@ -1,0 +1,100 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Delegation</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .container {
+      border: 1px solid;
+      height: 10rem;
+      width: 10rem;
+    }
+
+    .container>div:hover{
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="red">red</div>
+    <div class="blue">blue</div>
+    <div class="green">green</div>
+  </div>
+  <script>
+    // Write JS Solution Here =================================
+    const contain = document.querySelector('.container');
+
+    contain.addEventListener('click', function(event){
+        if(event.target.tagName === 'DIV'){
+            contain.style.backgroundColor = event.target.textContent;
+        }
+    });
+
+  </script>
+</body> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi dolores,
+      rerum repudiandae enim consectetur consequatur quae recusandae,
+      perferendis at quod illum, deleniti similique a eius nulla architecto
+      earum. Iure, deleniti.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi dolores,
+      rerum repudiandae enim consectetur consequatur quae recusandae,
+      perferendis at quod illum, deleniti similique a eius nulla architecto
+      earum. Iure, deleniti.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi dolores,
+      rerum repudiandae enim consectetur consequatur quae recusandae,
+      perferendis at quod illum, deleniti similique a eius nulla architecto
+      earum. Iure, deleniti.
+    </p>
+    <script>
+      // WRITE THE JS PROGRAM HERE ====================================================================
+      const element = document.querySelectorAll('p');
+        console.log(element);
+        
+      
+       element.forEach(tag =>{
+        let counter = 0;
+
+        tag.addEventListener('click', function(event){
+            counter++;
+            if(counter === 1){
+                event.target.style.backgroundColor = 'red';
+            }else if(counter === 2){
+                event.target.style.backgroundColor = 'blue';
+            }else if(counter === 3){
+                event.target.style.backgroundColor = '';
+                counter = 0;
+            }
+        })
+        
+       });
+    
+      
+    </script>
+  </body>
+</html>
