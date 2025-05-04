@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .counter,
+      .quantity,
+      .row {
+        display: flex;
+        gap: 10px;
+      }
+      .container {
+        flex-direction: column;
+      }
+      .row,
+      .container {
+        padding: 20px;
+        border: 2px solid #ccc;
+      }
+      .row {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Counter</h1>
+    <div class="container">
+      <div class="row">
+        <div class="title">Apple</div>
+        <div class="quantity">
+          <button class="btn-minus">-</button>
+          <span class="count">0</span>
+          <button class="btn-plus">+</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="title">Mango</div>
+        <div class="quantity">
+          <button class="btn-minus">-</button>
+          <span class="count">0</span>
+          <button class="btn-plus">+</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="title">Banana</div>
+        <div class="quantity">
+          <button class="btn-minus">-</button>
+          <span class="count">0</span>
+          <button class="btn-plus">+</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      const btnMinusRef = document.querySelector(".btn-minus");
+      const btnPlusRef = document.querySelector(".btn-plus");
+      const countRef = document.querySelector(".count");
+      const containerRef = document.querySelector(".container");
+
+      //   containerRef.addEventListener("click", function (e) {
+      //     console.log("containerRef ->", e.target);
+      //   });
+
+      containerRef.addEventListener("click", function (event) {
+        alert("containerRef >", event.target);
+      });
+
+      document.addEventListener("click", (e) => {
+        alert("DocumentRef >", e.target);
+      });
+
+      const rowRef = document.querySelector(".row");
+      rowRef.addEventListener("click", function (event) {
+        alert("rowRef >", event.target);
+      });
+
+      document.addEventListener(
+        "click",
+        (e) => {
+          alert("DocumentRef captured>", e.target);
+        },
+        true
+      );
+
+      containerRef.addEventListener(
+        "click",
+        function (event) {
+          alert("containerRef captured>", event.target);
+        },
+        true
+      );
+    </script>
+  </body>
+</html>
