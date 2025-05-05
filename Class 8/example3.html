@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Rating</title>
+    <!-- Link the CSS file -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="rating-component">
+      <h2>Rate this Product</h2>
+      <div id="stars">
+        <!-- Star buttons will go here -->
+        <button class="star" data-id="1">★</button>
+        <button class="star" data-id="2">★</button>
+        <button class="star" data-id="3">★</button>
+        <button class="star" data-id="4">★</button>
+        <button class="star" data-id="5">★</button>
+      </div>
+      <h3>Ratings:</h3>
+      <div id="ratings-list">
+        <!-- Progress bars and percentages will go here -->
+        <div class="scroll">
+          <label class="ratingname">1 Star</label>
+          <div class="percentage-rating">
+            <input
+              type="range"
+              name="rating1"
+              min="0"
+              max="100"
+              value="0"
+              class="ratings rating1"
+            />
+            <p class="percentage">%</p>
+          </div>
+        </div>
+        <div class="scroll">
+          <label class="ratingname">2 Star</label>
+          <div class="percentage-rating">
+            <input
+              type="range"
+              name="rating1"
+              min="0"
+              max="100"
+              value="0"
+              class="ratings rating1"
+            />
+            <p class="percentage">%</p>
+          </div>
+        </div>
+        <div class="scroll">
+          <label class="ratingname">3 Star</label>
+          <div class="percentage-rating">
+            <input
+              type="range"
+              name="rating1"
+              min="0"
+              max="100"
+              value="0"
+              class="ratings rating1"
+            />
+            <p class="percentage">%</p>
+          </div>
+        </div>
+        <div class="scroll">
+          <label class="ratingname">4 Star</label>
+          <div class="percentage-rating">
+            <input
+              type="range"
+              name="rating1"
+              min="0"
+              max="100"
+              value="0"
+              class="ratings rating1"
+            />
+            <p class="percentage">%</p>
+          </div>
+        </div>
+        <div class="scroll">
+          <label class="ratingname">5 Star</label>
+          <div class="percentage-rating">
+            <input
+              type="range"
+              name="rating1"
+              min="0"
+              max="100"
+              value="0"
+              class="ratings rating1"
+            />
+            <p class="percentage">%</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Link the JavaScript file -->
+    <script src="index.js"></script>
+  </body>
+</html>
