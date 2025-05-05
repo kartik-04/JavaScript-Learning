@@ -58,18 +58,18 @@ src = './assets/profile.png'
         divRef.classList.add("card");
         console.log(divRef);
         divRef.innerHTML = `
-            <div class="${data[idx].id}">
-                <span class="${data[idx].title}">Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</span>
-                <br>
-                <span class="${data[idx].category}">men's clothing</span>
-                <div class="all__star">
-                    ${starsHTML}
-                </div>
-                <div class="${data[idx].rating.count}">Rating Count : <span>${roundRate}</span></div>
-            </div>
-            <div class="btn">
-                <button class="btn__buy">Buy Now</button>
-            </div>`;
+  <div class="details">
+    <span class="product__name">${data[idx].title}</span>
+    <br>
+    <span class="product__category">${data[idx].category}</span>
+    <div class="all__star">
+      ${starsHTML}
+    </div>
+    <div class="rating__count">Rating Count : <span>${data[idx].rating.count}</span></div>
+  </div>
+  <div class="btn">
+    <button class="btn__buy">Buy Now</button>
+  </div>`;
         containerRef.appendChild(divRef);
       });
     </script>
