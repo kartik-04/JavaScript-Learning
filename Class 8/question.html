@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Please NOTE that the link to assets (like images) need to be set in global context.
+For example:
+To access an image from assets folder correct way to set src attribute is 
+
+src = 'profile.png'
+
+instead of 
+
+src = './assets/profile.png'
+-->
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ticket Management App</title>
+
+    <link rel="stylesheet" href="question1.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Counter</h1>
+      <span id="number" class="number">6</span>
+      <div class="row">
+        Increment / Decrement by
+        <input id="increment" type="number" min="1" max="10" value="1" />
+      </div>
+      <div class="row">
+        <button id="add" class="add">+</button>
+        <button id="subtract" class="subtract">-</button>
+      </div>
+      <button id="reset" class="reset">Reset</button>
+    </div>
+    <script>
+      const numberRef = document.querySelector(".number");
+      const plus = document.querySelector(".add");
+      const minus = document.querySelector(".subtract");
+      const resetRef = document.querySelector(".reset");
+      const inpout = document.getElementById("increment");
+      const containerRef = document.querySelector(".container");
+
+      function getIncrementValue() {
+        const value = parseInt(inpout.value);
+        return isNaN(value) ? 1 : value;
+      }
+
+      containerRef.addEventListener("click", function (event) {
+        if (event.target.classList.contains("reset")) {
+          numberRef.textContent = 0;
+        } else if (event.target.classList.contains("add")) {
+          let value = getIncrementValue();
+          let total = parseInt(numberRef.textContent) + value;
+          numberRef.textContent = total;
+        } else if (event.target.classList.contains("subtract")) {
+          const value = getIncrementValue();
+          let total = parseInt(numberRef.textContent) - value;
+          numberRef.textContent = total;
+        }
+      });
+    </script>
+  </body>
+</html>
