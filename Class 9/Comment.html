@@ -155,22 +155,19 @@
 
       function render() {
         containerRef.innerHTML = "";
-        comments.forEach((comment) => {
-          const parentRef = createCommentCard(
-            containerRef,
+        renderCommentRecursive(comments, containerRef);
+      }
+      function renderCommentRecursive(commentList, parentRef) {
+        commentList.forEach((comment) => {
+          const newCommentRef = createCommentCard(
+            parentRef,
             comment.id,
             comment.title
           );
-          comment.replies?.forEach((parentReply) => {
-            const childRef = createCommentCard(
-              parentRef,
-              parentReply.id,
-              parentReply.title
-            );
-            parentReply.replies?.forEach((childReply) => {
-              createCommentCard(childRef, childReply.id, childReply.title);
-            });
-          });
+
+          if (comment.replies && comment.replies.length > 0) {
+            renderCommentRecursive(comment.replies, newCommentRef);
+          }
         });
       }
 
