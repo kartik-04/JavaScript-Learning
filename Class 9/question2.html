@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Collapsible Sidebar Challenge</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Write CSS Code here */
+
+      #sidebar {
+        background-color: #34495e;
+        color: #fff;
+        padding: 15px 30px;
+        width: 250px;
+        flex-shrink: 0;
+        transition: width 0.3s;
+      }
+
+      #toggle-button {
+        background-color: #e74c3c;
+        border: 0;
+      }
+      #toggle-button:hover {
+        background-color: #c0392b;
+      }
+
+      #main-content {
+        background-color: #f1c40f;
+        width: 100%;
+        flex-grow: 1;
+        transition: width 0.3s;
+      }
+      .overview {
+        display: flex;
+      }
+      .collapsed {
+        width: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="overview">
+      <div id="sidebar">
+        <button id="toggle-button">Toggle Sidebar</button>
+        <p>Sidebar Content</p>
+      </div>
+      <div id="main-content">Main Content</div>
+    </div>
+    <script>
+      const sideRef = document.querySelector("#sidebar");
+      const mainRef = document.querySelector("#main-content");
+      const btnRef = document.querySelector("#toggle-button");
+      btnRef.addEventListener("click", function (event) {
+        sideRef.classList.toggle("collapsed");
+        if (sideRef.classList.contains("collapsed")) {
+          sideRef.style.width = "80px";
+          mainRef.style.paddingLeft = "100px";
+        } else {
+          sideRef.style.width = "250px";
+          mainRef.style.paddingLeft = "250px";
+        }
+      });
+    </script>
+  </body>
+</html>
