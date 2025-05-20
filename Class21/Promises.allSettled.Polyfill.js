@@ -1,37 +1,9 @@
 Promise.myAllSettled = function (promises) {
-  //Scenariol: All promises should execute in parallel
-  // Scenario2: All promises resolves
-  // Scenar103: Any promise)fejects
-  // output : promise = list of responses | Error
-  return new Promise((resolve, reject) => {
-    let resolved = [];
-    let rejected = [];
-    let responseCounter = 0;
-
-    promises.forEach((promise, idx) => {
-      promise
-        .then((res) => {
-          resolved[idx] = res;
-          responseCounter++;
-          if (responseCounter === promises.length) {
-            const responses = [...resolved, ...rejected];
-            resolve(responses);
-          }
-        })
-        .catch((err) => {
-          rejected[idx] = err;
-          responseCounter++;
-          if (responseCounter === promises.length) {
-            const responses = [...resolved, ...rejected];
-            resolve(responses);
-          }
-        });
-    });
-  });
-};
-
-Promise.myAllSettled = function (promises) {
   return new Promise((resolve) => {
+    if (!Array.isArray(promises)) {
+      throw new TypeError("Input must be an array of promises");
+    }
+
     let results = [];
     let responseCounter = 0;
 
@@ -52,3 +24,12 @@ Promise.myAllSettled = function (promises) {
     });
   });
 };
+
+// Example usage
+const promise1 = Promise.resolve(10);
+const promise2 = Promise.reject("Error occurred");
+const promise3 = Promise.resolve(30);
+
+Promise.myAllSettled([promise1, promise2, promise3]).then((results) =>
+  console.log("Results:", results)
+);
